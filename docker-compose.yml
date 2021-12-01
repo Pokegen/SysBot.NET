@@ -1,7 +1,7 @@
 version: "3"
 services:
   sysbot-net:
-    image: ghcr.io/pokegen/SysBot.NET:latest
+    image: ghcr.io/pokegen/sysbot.net:latest
     network_mode: host
     volumes:
       - ./distribute:/app/distribute

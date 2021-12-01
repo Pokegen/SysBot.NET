@@ -1,0 +1,10 @@
+version: "3"
+services:
+  sysbot-net:
+    image: ghcr.io/pokegen/SysBot.NET:latest
+    network_mode: host
+    volumes:
+      - ./distribute:/app/distribute
+      - ./dumps:/app/dumps
+      - ./MGDB:/app/MGDB
+    restart: always

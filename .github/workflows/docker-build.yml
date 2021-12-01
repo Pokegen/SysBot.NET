@@ -48,6 +48,6 @@ jobs:
           push: true
           tags: |
             ghcr.io/pokegen/sysbot.net:${{ steps.sha_short.outputs.sha_short }}
-            ghcr.io/pokegen/sysbot.net:latest
+            ghcr.io/pokegen/sysbot.net:latest-arm64
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

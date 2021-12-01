@@ -4,6 +4,7 @@ on:
   push:
     branches: [master]
     paths:
+      - SysBot.Pokemon.Z3/**
       - SysBot.Pokemon.ConsoleApp/**
       - SysBot.Pokemon.Discord/**
       - SysBot.Pokemon.Twitch/**

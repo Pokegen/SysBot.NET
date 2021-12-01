@@ -46,7 +46,7 @@ jobs:
           file: ./SysBot.Pokemon.ConsoleApp/Dockerfile
           push: true
           tags: |
-            ghcr.io/pokegen/SysBot.NET:${{ steps.sha_short.outputs.sha_short }}
-            ghcr.io/pokegen/SysBot.NET:latest
+            ghcr.io/pokegen/sysbot.net:${{ steps.sha_short.outputs.sha_short }}
+            ghcr.io/pokegen/sysbot.net:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

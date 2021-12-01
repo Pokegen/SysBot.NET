@@ -6,7 +6,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 WORKDIR /src
-COPY ["SysBot.Pokemon.ConsoleApp.csproj", "SysBot.Pokemon.ConsoleApp/"]
+COPY ["SysBot.Pokemon.ConsoleApp/SysBot.Pokemon.ConsoleApp.csproj", "SysBot.Pokemon.ConsoleApp/"]
 RUN dotnet restore "SysBot.Pokemon.ConsoleApp/SysBot.Pokemon.ConsoleApp.csproj"
 COPY . .
 WORKDIR "/src/SysBot.Pokemon.ConsoleApp"

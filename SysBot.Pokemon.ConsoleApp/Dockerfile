@@ -1,10 +1,10 @@
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/runtime:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["SysBot.Pokemon.ConsoleApp/SysBot.Pokemon.ConsoleApp.csproj", "SysBot.Pokemon.ConsoleApp/"]
 RUN dotnet restore "SysBot.Pokemon.ConsoleApp/SysBot.Pokemon.ConsoleApp.csproj"

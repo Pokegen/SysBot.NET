@@ -1,4 +1,4 @@
-name: Build Pokégen.Discord Service Docker Image
+name: Build SysBot.Pokemon.ConsoleApp Docker Image
 
 on:
   push:

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <Platforms>x64</Platforms>
     <StartupObject>SysBot.Pokemon.ConsoleApp.Program</StartupObject>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>

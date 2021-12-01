@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using PKHeX.Core;
@@ -30,14 +31,13 @@ namespace SysBot.Pokemon.ConsoleApp
                 var lines = File.ReadAllText(ConfigPath);
                 var cfg = JsonConvert.DeserializeObject<ProgramConfig>(lines, GetSettings()) ?? new ProgramConfig();
                 PokeTradeBot.SeedChecker = new Z3SeedSearchHandler<PK8>();
-                BotContainer.RunBots(cfg);
+                BotContainer.RunBots(cfg).Wait();
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception)
 #pragma warning restore CA1031 // Do not catch general exception types
             {
                 Console.WriteLine("Unable to start bots with saved config file. Please copy your config from the WinForms project or delete it and reconfigure.");
-                Console.ReadKey();
             }
         }
 
@@ -75,7 +75,7 @@ namespace SysBot.Pokemon.ConsoleApp
 
     public static class BotContainer
     {
-        public static void RunBots(ProgramConfig prog)
+        public static async Task RunBots(ProgramConfig prog)
         {
             IPokeBotRunner env = GetRunner(prog);
             foreach (var bot in prog.Bots)
@@ -88,9 +88,7 @@ namespace SysBot.Pokemon.ConsoleApp
             LogUtil.Forwarders.Add((msg, ident) => Console.WriteLine($"{ident}: {msg}"));
             env.StartAll();
             Console.WriteLine($"Started all bots (Count: {prog.Bots.Length}.");
-            Console.WriteLine("Press any key to stop execution and quit. Feel free to minimize this window!");
-            Console.ReadKey();
-            env.StopAll();
+            await Task.Delay(-1);
         }
 
         private static IPokeBotRunner GetRunner(ProgramConfig prog) => prog.Mode switch

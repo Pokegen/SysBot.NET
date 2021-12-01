@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <LangVersion>9</LangVersion>
+    <LangVersion>default</LangVersion>
     <Nullable>enable</Nullable>
     <Platforms>x64</Platforms>
     <StartupObject>SysBot.Pokemon.ConsoleApp.Program</StartupObject>
